@@ -1,0 +1,138 @@
+/* .top {
+  width: 100%;
+  height: 50px;
+  background-color: lightgrey;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+  z-index: 999;
+}
+
+.topLeft,
+.topRight {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.topCenter {
+  flex: 6;
+}
+
+.topIcon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #444;
+  cursor: pointer;
+} */
+
+.topLogo {
+  width: 80px;
+  height: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.topImg {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.pic {
+  right: 15px;
+}
+
+.logout {
+  margin: 10px;
+  cursor: pointer;
+}
+
+/* .topList {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.topListItem {
+  margin-right: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.topSearchIcon {
+  font-size: 18px;
+  color: #666;
+  cursor: pointer;
+  margin-left: 15px;
+} */
+
+/* div */
+.search-box {
+  position: absolute;
+  top: 50%;
+  left:80%;
+  transform: translate(-50%, -50%);
+  background: #a8dadc;
+  height: 40px;
+  border-radius: 50px;
+  padding: 10px;
+}
+/* input */
+.search-input {
+  outline: none;
+  border: none;
+  background: none;
+  width: 0;
+  padding: 0;
+  color: #1d3557;
+  float: left;
+  font-size: 16px;
+  transition: .3s;
+}
+.search-input::placeholder {
+  color: #1d3557;
+}
+/* icon */
+.search-btn {
+  color: #e63946;
+  float: right;
+  width: 20px;
+  height: 20px;
+  border-radius: 50px;
+  background: #a8dadc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: .3s;
+}
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+  width: 240px;
+  padding: 0 6px;
+}
+.search-box:hover > .search-input {
+  width: 240px;
+  padding: 0 6px;
+}
+.search-box:hover > .search-btn,
+.search-input:focus + .search-btn,
+.search-input:not(:placeholder-shown) + .search-btn {
+  background: #a8dadc;
+  color: #e63946;
+}
+.link{
+  margin-left: 20px;
+
+}

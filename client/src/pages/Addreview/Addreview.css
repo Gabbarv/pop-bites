@@ -1,0 +1,58 @@
+.addreview {
+    height: calc(100vh - 50px);
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url("https://images.pexels.com/photos/317355/pexels-photo-317355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: cover;
+  }
+  
+  .addreviewTitle {
+    font-size: 50px;
+  }
+  
+  .addreviewForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .addreviewForm > label {
+    width: 310px;
+    margin: 10px 0;
+  }
+  
+  .addreviewInput {
+    border-radius: 7px;
+    padding: 10px;
+    background-color: white;
+    border: none;
+  }
+  
+  .addreviewButton {
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: teal;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  
+  .addreviewLoginButton {
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: lightcoral;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+  }
