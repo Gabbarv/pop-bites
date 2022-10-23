@@ -1,4 +1,5 @@
-import Home from "./pages/home/Home";
+// import Home from "./pages/home/Home";
+import Home from "./pages/Homenew/Home";
 import TopBar from "./components/topbar/TopBar";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
@@ -10,6 +11,7 @@ import { useContext } from "react";
 import { Context } from "./context/Context";
 import Addreview from "./pages/Addreview/Addreview";
 import Reviews from "./pages/Reviewlist/Reviews";
+import Blog from "./pages/blog/Blog";
 
 function App() {
   const { user } = useContext(Context);
@@ -26,6 +28,8 @@ function App() {
         <Route exact path="/reviews"   element={user && !user.isAdmin && <Reviews/>}/>
         <Route exact path="/settings" element={user && <Settings />} />
         <Route exact path="/post/:postId" element={<Single />} />
+        <Route exact path="/blog/:blogId" element={<Blog/>}/>
+        <Route exact path="/write/:blogId" element={user && user.isAdmin && <Write />} />
       </Routes>
     </Router>
   );

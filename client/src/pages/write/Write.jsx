@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../context/Context";
@@ -11,6 +11,29 @@ export default function Write() {
   const [category, setCategory] = useState("");
   const { user } = useContext(Context);
   const navigate = useNavigate();
+  const {blogId} = useParams();
+  const [postId,setPostId] = useState();
+
+    const fetchpost = async () => {
+
+      const res = await axios.get(`/api/posts/${blogId}`);
+      setTitle(res.data.title);
+      setDesc(res.data.desc);
+      setCategory(res.data.category);
+      setPostId(res.data._id)
+      
+
+    }
+  
+    useEffect(() => {
+      if(blogId){
+        fetchpost();
+      }
+      },[])
+
+  
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +54,16 @@ export default function Write() {
       } catch (err) { }
     }
     try {
-      const res = await axios.post("/api/posts", newPost);
-      navigate(`/post/${res.data.title}`, { replace: true });
+     if(blogId){
+      await axios.put(`/api/posts/${postId}`,newPost);
+      navigate(`/blog/${blogId}`, { replace: true });
+     } else {
+      const resone = await axios.post("/api/posts", newPost);
+      navigate(`/blog/${resone.data.title}`, { replace: true });
+
+     }
+        
+        
     } catch (err) { }
   };
   return (
@@ -58,12 +89,14 @@ export default function Write() {
           placeholder="Title"
           className="writeInput"
           autoFocus={true}
+          value={title}
           onChange={e => setTitle(e.target.value)} />
         </div>
         <div className="writeFormGroup"><input
           type="text"
           placeholder="Category"
           className="writeInput"
+          value={category}
           onChange={e => setCategory(e.target.value)} />
         </div>
         <div className="writeFormGroup">
@@ -71,11 +104,12 @@ export default function Write() {
             placeholder="Tell your story..."
             type="text"
             className="writeInput writeText"
+            value={desc}
             onChange={e => setDesc(e.target.value)}
           ></textarea>
         </div>
         <button className="writeSubmit" type="submit">
-          Publish
+          {blogId ? 'Update' : 'Publish'}
         </button>
       </form>
     </div>

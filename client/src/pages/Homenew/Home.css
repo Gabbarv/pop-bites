@@ -1,0 +1,54 @@
+ body{
+    font-family: 'Fira Sans', sans-serif;
+ }
+ .main{
+    margin-top: 100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-gap: 20px;
+   
+}
+.posts{
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-gap: 1rem;
+    justify-content: center;
+  
+}
+
+
+/* .one{
+background-color: bisque;
+margin-right: 10px;
+}
+.two{
+    background-color: black;
+    margin-left: 10px;
+    
+}
+.s-posts{
+    margin-top: 30px;
+}
+.s-posts .col-5{
+    width: 48%;
+} 
+.l-post{
+    margin-right: 15px;
+}
+.r-post{
+    margin-left: 15px;
+} */
+
+
+@media only screen and (max-width: 882px){
+
+    .main{
+        display: grid;
+        grid-template-columns: 1fr;
+        
+    }
+   
+}

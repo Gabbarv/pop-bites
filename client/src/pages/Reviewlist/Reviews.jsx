@@ -13,7 +13,7 @@ function Reviews(){
         const data = res.data;
         const userReview = data.filter(item => item.userid === user._id);
         setReviews(userReview)
-        
+      
         
         
         
@@ -21,6 +21,8 @@ function Reviews(){
     
 
     useEffect(() => fetchreviews()
+
+
         
     ,[])
 

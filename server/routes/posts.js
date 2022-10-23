@@ -2,6 +2,23 @@ const router = require("express").Router();
 const User = require("../models/User");
 const Post = require("../models/Post");
 
+
+
+
+router.get("/recentpost", async (req,res) => {
+ 
+  try {
+  
+  const recentposts = await Post.find().sort({"_id": -1}).limit(5);
+  res.status(200).json(recentposts);
+  
+    
+  } catch (error) {
+    console.log(error)
+  }
+  
+});
+
 //CREATE POST
 router.post("/", async (req, res) => {
   const newPost = new Post(req.body);
@@ -85,11 +102,16 @@ router.get("/", async (req, res) => {
       posts = await Post.find({ title: search }).limit(PAGE_SIZE).skip(PAGE_SIZE * page);
     } else {
       posts = await Post.find().limit(PAGE_SIZE).skip(PAGE_SIZE * page);
+      // posts = await Post.find().sort({"_id": -1}).limit(3);
     }
     res.status(200).json({ totalPages: Math.ceil(total / PAGE_SIZE), posts });
   } catch (err) {
     res.status(500).json(err);
   }
+
+   //GET RECENT POST
+
+   
 
   //run `npm install request` in the root folder of your website to install request
   var request = require("request");
@@ -126,7 +148,10 @@ router.get("/", async (req, res) => {
       console.log(userDetails);
     }
   });
+ 
 
 });
+
+
 
 module.exports = router;
